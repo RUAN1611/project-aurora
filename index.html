@@ -15,10 +15,10 @@
 
         :root {
             --alien-green: #39ff14;
-            --void-purple: #4a0080;
-            --cosmic-pink: #ff00ff;
-            --nebula-blue: #00ffff;
-            --dark-matter: #0a0a0f;
+            --blood-red: #8b0000;
+            --danger-red: #ff0033;
+            --ember-orange: #ff4500;
+            --dark-matter: #0a0505;
         }
 
         body {
@@ -27,7 +27,7 @@
             font-family: 'Orbitron', monospace;
             min-height: 100vh;
             overflow-x: hidden;
-            cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="8" fill="%2339ff14" opacity="0.7"/><circle cx="16" cy="16" r="4" fill="%23ff00ff"/></svg>'), auto;
+            cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="8" fill="%23ff0033" opacity="0.7"/><circle cx="16" cy="16" r="4" fill="%2339ff14"/></svg>'), auto;
         }
 
         .starfield {
@@ -39,7 +39,7 @@
             z-index: -1;
             background:
                 radial-gradient(ellipse at center, transparent 0%, var(--dark-matter) 70%),
-                repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(57, 255, 20, 0.03) 1deg, transparent 2deg);
+                repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(255, 0, 51, 0.03) 1deg, transparent 2deg);
             animation: rotate 120s linear infinite;
         }
 
@@ -51,16 +51,16 @@
             top: -50%;
             left: -50%;
             background-image:
-                radial-gradient(2px 2px at 20px 30px, var(--alien-green), transparent),
-                radial-gradient(2px 2px at 40px 70px, var(--cosmic-pink), transparent),
-                radial-gradient(1px 1px at 90px 40px, var(--nebula-blue), transparent),
-                radial-gradient(2px 2px at 160px 120px, var(--alien-green), transparent),
+                radial-gradient(2px 2px at 20px 30px, var(--danger-red), transparent),
+                radial-gradient(2px 2px at 40px 70px, var(--ember-orange), transparent),
+                radial-gradient(1px 1px at 90px 40px, var(--alien-green), transparent),
+                radial-gradient(2px 2px at 160px 120px, var(--danger-red), transparent),
                 radial-gradient(1px 1px at 230px 80px, white, transparent),
-                radial-gradient(2px 2px at 300px 150px, var(--cosmic-pink), transparent),
-                radial-gradient(1px 1px at 370px 200px, var(--nebula-blue), transparent),
-                radial-gradient(2px 2px at 450px 50px, var(--alien-green), transparent),
+                radial-gradient(2px 2px at 300px 150px, var(--ember-orange), transparent),
+                radial-gradient(1px 1px at 370px 200px, var(--alien-green), transparent),
+                radial-gradient(2px 2px at 450px 50px, var(--danger-red), transparent),
                 radial-gradient(1px 1px at 520px 180px, white, transparent),
-                radial-gradient(2px 2px at 600px 100px, var(--cosmic-pink), transparent);
+                radial-gradient(2px 2px at 600px 100px, var(--ember-orange), transparent);
             background-size: 650px 250px;
             animation: drift 60s linear infinite;
         }
@@ -89,13 +89,13 @@
         }
 
         .glitch::before {
-            color: var(--cosmic-pink);
+            color: var(--danger-red);
             animation: glitch-1 0.5s infinite linear alternate-reverse;
             clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
         }
 
         .glitch::after {
-            color: var(--nebula-blue);
+            color: var(--ember-orange);
             animation: glitch-2 0.5s infinite linear alternate-reverse;
             clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
         }
@@ -133,15 +133,15 @@
             flex-wrap: wrap;
             gap: 1rem;
             padding: 2rem;
-            border-bottom: 2px solid var(--void-purple);
-            background: linear-gradient(180deg, rgba(74, 0, 128, 0.3) 0%, transparent 100%);
+            border-bottom: 2px solid var(--blood-red);
+            background: linear-gradient(180deg, rgba(139, 0, 0, 0.3) 0%, transparent 100%);
         }
 
         nav a {
-            color: var(--nebula-blue);
+            color: var(--ember-orange);
             text-decoration: none;
             padding: 0.5rem 1.5rem;
-            border: 1px solid var(--void-purple);
+            border: 1px solid var(--blood-red);
             border-radius: 50px;
             transition: all 0.3s ease;
             font-size: 0.9rem;
@@ -157,7 +157,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 51, 0.4), transparent);
             transition: left 0.5s ease;
         }
 
@@ -166,10 +166,10 @@
         }
 
         nav a:hover {
-            color: var(--alien-green);
-            border-color: var(--alien-green);
-            box-shadow: 0 0 20px var(--alien-green), inset 0 0 20px rgba(57, 255, 20, 0.1);
-            text-shadow: 0 0 10px var(--alien-green);
+            color: var(--danger-red);
+            border-color: var(--danger-red);
+            box-shadow: 0 0 20px var(--danger-red), inset 0 0 20px rgba(255, 0, 51, 0.1);
+            text-shadow: 0 0 10px var(--danger-red);
         }
 
         header {
@@ -186,13 +186,13 @@
                 0 0 10px var(--alien-green),
                 0 0 20px var(--alien-green),
                 0 0 40px var(--alien-green),
-                0 0 80px var(--void-purple);
+                0 0 80px var(--blood-red);
             letter-spacing: 0.5rem;
         }
 
         .subtitle {
             font-size: 1.2rem;
-            color: var(--cosmic-pink);
+            color: var(--danger-red);
             letter-spacing: 0.8rem;
             animation: pulse 2s ease-in-out infinite;
         }
@@ -209,8 +209,8 @@
         }
 
         .transmission {
-            background: linear-gradient(135deg, rgba(74, 0, 128, 0.2) 0%, rgba(0, 255, 255, 0.05) 100%);
-            border: 1px solid var(--void-purple);
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2) 0%, rgba(255, 69, 0, 0.05) 100%);
+            border: 1px solid var(--blood-red);
             border-radius: 20px;
             padding: 2rem;
             margin: 2rem 0;
@@ -219,20 +219,20 @@
         }
 
         .transmission::before {
-            content: '◈ ᛟᛒᛖᛁᛏᚺᛖᛗ ◈';
+            content: '◈ ꙮᛝᚺᘛᗅ ◈';
             position: absolute;
             top: -10px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--dark-matter);
             padding: 0 1rem;
-            color: var(--cosmic-pink);
+            color: var(--danger-red);
             font-size: 0.8rem;
             letter-spacing: 3px;
         }
 
         .transmission h2 {
-            color: var(--nebula-blue);
+            color: var(--ember-orange);
             font-size: 1.5rem;
             margin-bottom: 1rem;
             text-transform: uppercase;
@@ -258,8 +258,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle at center, rgba(57, 255, 20, 0.1) 0%, transparent 70%);
-            border: 1px solid var(--void-purple);
+            background: radial-gradient(circle at center, rgba(255, 0, 51, 0.1) 0%, transparent 70%);
+            border: 1px solid var(--blood-red);
             border-radius: 15px;
             transition: all 0.5s ease;
             cursor: pointer;
@@ -267,10 +267,10 @@
 
         .symbol-card:hover {
             transform: scale(1.1) rotate(5deg);
-            border-color: var(--alien-green);
+            border-color: var(--danger-red);
             box-shadow:
-                0 0 30px rgba(57, 255, 20, 0.3),
-                inset 0 0 30px rgba(57, 255, 20, 0.1);
+                0 0 30px rgba(255, 0, 51, 0.3),
+                inset 0 0 30px rgba(255, 0, 51, 0.1);
         }
 
         .symbol-card .glyph {
@@ -280,7 +280,7 @@
 
         .symbol-card .label {
             font-size: 0.7rem;
-            color: var(--cosmic-pink);
+            color: var(--danger-red);
             letter-spacing: 2px;
             text-transform: uppercase;
         }
@@ -289,15 +289,15 @@
             overflow: hidden;
             white-space: nowrap;
             padding: 1rem 0;
-            border-top: 1px solid var(--void-purple);
-            border-bottom: 1px solid var(--void-purple);
+            border-top: 1px solid var(--blood-red);
+            border-bottom: 1px solid var(--blood-red);
             margin: 2rem 0;
         }
 
         .scroll-text {
             display: inline-block;
             animation: scroll 20s linear infinite;
-            color: var(--cosmic-pink);
+            color: var(--danger-red);
             font-size: 1.5rem;
             letter-spacing: 1rem;
         }
@@ -309,7 +309,7 @@
 
         .alien-form {
             background: rgba(0, 0, 0, 0.5);
-            border: 2px solid var(--void-purple);
+            border: 2px solid var(--blood-red);
             border-radius: 30px;
             padding: 2rem;
             margin: 3rem auto;
@@ -318,7 +318,7 @@
 
         .alien-form h3 {
             text-align: center;
-            color: var(--nebula-blue);
+            color: var(--ember-orange);
             margin-bottom: 2rem;
             font-size: 1.2rem;
             letter-spacing: 5px;
@@ -330,7 +330,7 @@
 
         .form-group label {
             display: block;
-            color: var(--cosmic-pink);
+            color: var(--danger-red);
             margin-bottom: 0.5rem;
             font-size: 0.8rem;
             letter-spacing: 3px;
@@ -340,8 +340,8 @@
         .form-group select {
             width: 100%;
             padding: 1rem;
-            background: rgba(57, 255, 20, 0.05);
-            border: 1px solid var(--void-purple);
+            background: rgba(255, 0, 51, 0.05);
+            border: 1px solid var(--blood-red);
             border-radius: 10px;
             color: var(--alien-green);
             font-family: 'Orbitron', monospace;
@@ -352,18 +352,18 @@
         .form-group input:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--alien-green);
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+            border-color: var(--danger-red);
+            box-shadow: 0 0 20px rgba(255, 0, 51, 0.3);
         }
 
         .form-group input::placeholder {
-            color: rgba(57, 255, 20, 0.3);
+            color: rgba(255, 0, 51, 0.3);
         }
 
         .submit-btn {
             width: 100%;
             padding: 1rem;
-            background: linear-gradient(135deg, var(--void-purple) 0%, var(--cosmic-pink) 100%);
+            background: linear-gradient(135deg, var(--blood-red) 0%, var(--danger-red) 100%);
             border: none;
             border-radius: 50px;
             color: white;
@@ -377,7 +377,7 @@
 
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 0, 51, 0.4);
         }
 
         .orb {
@@ -391,7 +391,7 @@
         .orb-1 {
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(57, 255, 20, 0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 0, 51, 0.2) 0%, transparent 70%);
             top: 10%;
             right: -100px;
             animation: float 8s ease-in-out infinite;
@@ -400,7 +400,7 @@
         .orb-2 {
             width: 200px;
             height: 200px;
-            background: radial-gradient(circle, rgba(255, 0, 255, 0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(139, 0, 0, 0.3) 0%, transparent 70%);
             bottom: 20%;
             left: -50px;
             animation: float 6s ease-in-out infinite reverse;
@@ -409,7 +409,7 @@
         .orb-3 {
             width: 150px;
             height: 150px;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 69, 0, 0.2) 0%, transparent 70%);
             top: 50%;
             right: 10%;
             animation: float 10s ease-in-out infinite;
@@ -423,12 +423,12 @@
         footer {
             text-align: center;
             padding: 3rem 2rem;
-            border-top: 1px solid var(--void-purple);
+            border-top: 1px solid var(--blood-red);
             margin-top: 4rem;
         }
 
         footer p {
-            color: var(--cosmic-pink);
+            color: var(--danger-red);
             font-size: 0.8rem;
             letter-spacing: 3px;
             opacity: 0.7;
@@ -436,7 +436,7 @@
 
         .coordinates {
             font-size: 0.7rem;
-            color: var(--nebula-blue);
+            color: var(--ember-orange);
             margin-top: 1rem;
             font-family: monospace;
         }
@@ -462,122 +462,122 @@
     <div class="orb orb-3"></div>
 
     <nav>
-        <a href="/ᛝᚱᛟᛏᚺ">ᛝᚱᛟᛏᚺ</a>
-        <a href="/ᙁᗅᘺᘉ">ᙁᗅᘺᘉ</a>
+        <a href="/ᛝᚺᘛᗅ">ᛝᚺᘛᗅ</a>
+        <a href="/ᙁᘺᘉᐱ">ᙁᘺᘉᐱ</a>
         <a href="/ꙮꙮꙮ">ꙮꙮꙮ</a>
-        <a href="/ᐱᑐᕋᕈ">ᐱᑐᕋᕈ</a>
-        <a href="/ᚦᛁᛗᛖ">ᚦᛁᛗᛖ</a>
+        <a href="/ᐱᕋᕈᘜ">ᐱᕋᕈᘜ</a>
+        <a href="/ᚦᛗᘛᚺ">ᚦᛗᘛᚺ</a>
         <a href="/ᘛᘗᘚᘜ">ᘛᘗᘚᘜ</a>
         <a href="/⌇⌬⍜⌥">⌇⌬⍜⌥</a>
-        <a href="/ᔕᑫᑌᗩᘜ">ᔕᑫᑌᗩᘜ</a>
+        <a href="/ᔕᑫᗩᘜ">ᔕᑫᗩᘜ</a>
     </nav>
 
     <header>
-        <h1 class="glitch" data-text="ᘔᛟᚱᑫᑌᗩ">ᘔᛟᚱᑫᑌᗩ</h1>
-        <p class="subtitle">◈ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ⌬⍜⌥-7 ◈</p>
+        <h1 class="glitch" data-text="ᘔᛟᚺᑫᗅ">ᘔᛟᚺᑫᗅ</h1>
+        <p class="subtitle">◈ ᛝᚺᘛᗅ ᙁᘺᘉᐱ ⌬⍜⌥-7 ◈</p>
     </header>
 
     <main>
         <div class="transmission">
-            <h2>☿ ᛈᚱᛁᛗᛟᚱᛖ ᗩᑌᚱᛟᚱᗩ ☿</h2>
+            <h2>☿ ᛈᚺᘛᗅ ᗩᚺᘜᗅ ☿</h2>
             <p>
-                ꙮ ᛝᚱᛟᛏᚺ ᘛᘗᘚᘜ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ᐱᑐᕋᕈ ᚦᛁᛗᛖ ᔕᑫᑌᗩᘜ ꙮ
-                ᛟᛒᛖᛁ ᛗᛟᛟᚾ ᘔᛟᚱᑫᑌᗩ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ᐱᑐᕋᕈ ᚦᛁᛗᛖ.
-                ᘛᘗᘚᘜ ᔕᑫᑌᗩᘜ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ꙮꙮꙮ ᐱᑐᕋᕈ ᚦᛁᛗᛖ ᘛᘗᘚᘜ.
-                ⌇⌬⍜⌥ ᔕᑫᑌᗩᘜ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ꙮꙮꙮ ᐱᑐᕋᕈ ᚦᛁᛗᛖ ᘛᘗᘚᘜ ⌇⌬⍜⌥.
+                ꙮ ᛝᚺᘛᗅ ᘛᘗᘚᘜ ᙁᘺᘉᐱ ⌇⌬⍜⌥ ᐱᕋᕈᘜ ᚦᛗᘛᚺ ᔕᑫᗩᘜ ꙮ
+                ᛟᘛᚺᗅ ᘛᚺᘜᗅ ᘔᛟᚺᑫᗅ ᛝᚺᘛᗅ ᙁᘺᘉᐱ ⌇⌬⍜⌥ ᐱᕋᕈᘜ ᚦᛗᘛᚺ.
+                ᘛᘗᘚᘜ ᔕᑫᗩᘜ ᛝᚺᘛᗅ ᙁᘺᘉᐱ ꙮꙮꙮ ᐱᕋᕈᘜ ᚦᛗᘛᚺ ᘛᘗᘚᘜ.
+                ⌇⌬⍜⌥ ᔕᑫᗩᘜ ᛝᚺᘛᗅ ᙁᘺᘉᐱ ꙮꙮꙮ ᐱᕋᕈᘜ ᚦᛗᘛᚺ ᘛᘗᘚᘜ ⌇⌬⍜⌥.
             </p>
         </div>
 
         <div class="scroll-container">
             <div class="scroll-text">
-                ◈ ⌬ᛟᛒᛖᛁ ⌥ᛏᚺᛖ ⌇ᛗᛟᛟᚾ ◈ ᘔᛟᚱᑫᑌᗩ ᘛᘗᘚᘜ ◈ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ◈ 47.ᘔᛟᚱ.ᛟᑌᛏ ◈ ⌬ᛟᛒᛖᛁ ⌥ᛏᚺᛖ ⌇ᛗᛟᛟᚾ ◈ ᘔᛟᚱᑫᑌᗩ ᘛᘗᘚᘜ ◈ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ◈ 47.ᘔᛟᚱ.ᛟᑌᛏ ◈
+                ◈ ⌬ᛟᘛᚺᗅ ⌥ᚦᚺᘛ ⌇ᘛᚺᘜᗅ ◈ ᘔᛟᚺᑫᗅ ᘛᘗᘚᘜ ◈ ᛝᚺᘛᗅ ᙁᘺᘉᐱ ⌇⌬⍜⌥ ◈ 47.ᘔᛟᚺ.ᛟᗅᚦ ◈ ⌬ᛟᘛᚺᗅ ⌥ᚦᚺᘛ ⌇ᘛᚺᘜᗅ ◈ ᘔᛟᚺᑫᗅ ᘛᘗᘚᘜ ◈ ᛝᚺᘛᗅ ᙁᘺᘉᐱ ⌇⌬⍜⌥ ◈ 47.ᘔᛟᚺ.ᛟᗅᚦ ◈
             </div>
         </div>
 
         <div class="symbols-grid">
             <div class="symbol-card">
                 <span class="glyph">⌬</span>
-                <span class="label">ᘓᛚᛟᚱᛈ</span>
+                <span class="label">ᘓᚺᛟᚺᛈ</span>
             </div>
             <div class="symbol-card">
                 <span class="glyph">⍜</span>
-                <span class="label">ᘺᛟᚱᛈ</span>
+                <span class="label">ᘺᛟᚺᛈ</span>
             </div>
             <div class="symbol-card">
                 <span class="glyph">ꙮ</span>
-                <span class="label">ᛋᛖᛖᚱ</span>
+                <span class="label">ᛋᚺᚺᚺ</span>
             </div>
             <div class="symbol-card">
                 <span class="glyph">☿</span>
-                <span class="label">ᛗᛖᚱᘓᑌᚱ</span>
+                <span class="label">ᛗᚺᚺᘓᗅ</span>
             </div>
             <div class="symbol-card">
                 <span class="glyph">⌇</span>
-                <span class="label">ᚠᛚᑌx</span>
+                <span class="label">ᚠᚺᗅx</span>
             </div>
             <div class="symbol-card">
                 <span class="glyph">⏃</span>
-                <span class="label">ᗩᛝᘜᛚᛖ</span>
+                <span class="label">ᗩᛝᘜᚺᚺ</span>
             </div>
             <div class="symbol-card">
                 <span class="glyph">⏚</span>
-                <span class="label">ᘜᚱᛟᑌᛝᗪ</span>
+                <span class="label">ᘜᚺᛟᗅᛝᗪ</span>
             </div>
             <div class="symbol-card">
                 <span class="glyph">⏛</span>
-                <span class="label">ᛈᑌᛚᛋᛖ</span>
+                <span class="label">ᛈᗅᚺᛋᚺ</span>
             </div>
         </div>
 
         <div class="transmission">
-            <h2>⏃ ᛋᛖᘓᛟᛝᗪᛟᚱẙ ᘜᛚᛁᛗᛗᛖᚱ ⏃</h2>
+            <h2>⏃ ᛋᚺᘓᛟᛝᗪᛟᚺẙ ᘜᚺᘛᘗᘚᚺ ⏃</h2>
             <p>
-                ᛝᚱᛟᛏᚺ ᘛᘗᘚᘜ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ᐱᑐᕋᕈ ᚦᛁᛗᛖ ᔕᑫᑌᗩᘜ ꙮꙮꙮ.
-                ᘔᛟᚱᑫᑌᗩ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ᐱᑐᕋᕈ ᚦᛁᛗᛖ ᘛᘗᘚᘜ.
-                ᛟᛒᛖᛁ ᛗᛟᛟᚾ ᘔᛟᚱᑫᑌᗩ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ᐱᑐᕋᕈ ᚦᛁᛗᛖ.
-                ᘛᘗᘚᘜ ⌇⌬⍜⌥ ᔕᑫᑌᗩᘜ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ꙮꙮꙮ ᐱᑐᕋᕈ ᚦᛁᛗᛖ.
+                ᛝᚺᘛᗅ ᘛᘗᘚᘜ ᙁᘺᘉᐱ ⌇⌬⍜⌥ ᐱᕋᕈᘜ ᚦᛗᘛᚺ ᔕᑫᗩᘜ ꙮꙮꙮ.
+                ᘔᛟᚺᑫᗅ ᛝᚺᘛᗅ ᙁᘺᘉᐱ ⌇⌬⍜⌥ ᐱᕋᕈᘜ ᚦᛗᘛᚺ ᘛᘗᘚᘜ.
+                ᛟᘛᚺᗅ ᘛᚺᘜᗅ ᘔᛟᚺᑫᗅ ᛝᚺᘛᗅ ᙁᘺᘉᐱ ⌇⌬⍜⌥ ᐱᕋᕈᘜ ᚦᛗᘛᚺ.
+                ᘛᘗᘚᘜ ⌇⌬⍜⌥ ᔕᑫᗩᘜ ᛝᚺᘛᗅ ᙁᘺᘉᐱ ꙮꙮꙮ ᐱᕋᕈᘜ ᚦᛗᘛᚺ.
             </p>
         </div>
 
         <div class="alien-form">
-            <h3>◈ ᛏᚱᛟᛝᛋᛗᛁᛏ ẙᛟᑌᚱ ᛖᛋᛋᛖᛝᘓᛖ ◈</h3>
-            <form action="/ᛏᚱᛟᛝᛋᛗᛁᛏ" method="POST">
+            <h3>◈ ᚦᚺᛟᛝᛋᘛᗅᚦ ẙᛟᗅᚺ ᚺᛋᛋᚺᛝᘓᚺ ◈</h3>
+            <form action="/ᚦᚺᛟᛝᛋᘛᗅᚦ" method="POST">
                 <div class="form-group">
-                    <label for="zorgname">ᘔᛟᚱᘜ ᛝᛟᛗᛖ</label>
-                    <input type="text" id="zorgname" name="zorgname" placeholder="ᛖᛝᛏᛖᚱ ᘔᛟᚱᘜ ᛝᛟᛗᛖ...">
+                    <label for="zorgname">ᘔᛟᚺᘜ ᛝᛟᘛᚺ</label>
+                    <input type="text" id="zorgname" name="zorgname" placeholder="ᚺᛝᚦᚺᚺ ᘔᛟᚺᘜ ᛝᛟᘛᚺ...">
                 </div>
                 <div class="form-group">
-                    <label for="frequency">ᐱᛁᛒᚱᛟᛏᛁᛟᛝᛟᛚ ᚠᚱᛖᑫᑌᛖᛝᘓẙ</label>
+                    <label for="frequency">ᐱᗅᘛᚺᛟᚦᗅᛟᛝᛟᚺ ᚠᚺᚺᑫᗅᚺᛝᘓẙ</label>
                     <select id="frequency" name="frequency">
-                        <option value="ᘔᛟᚱ-1">ᘔᛟᚱ-1 (47.3 ᕼᘔ)</option>
-                        <option value="ᘔᛟᚱ-2">ᘔᛟᚱ-2 (108.7 ᕼᘔ)</option>
-                        <option value="ᘔᛟᚱ-3">ᘔᛟᚱ-3 (∞ ᕼᘔ)</option>
-                        <option value="ᘔᛟᚱ-ꙮ">ᘔᛟᚱ-ꙮ (ᑌᛝᗪᛖᚠᛁᛝᛖᗪ)</option>
+                        <option value="ᘔᛟᚺ-1">ᘔᛟᚺ-1 (47.3 ᕼᘔ)</option>
+                        <option value="ᘔᛟᚺ-2">ᘔᛟᚺ-2 (108.7 ᕼᘔ)</option>
+                        <option value="ᘔᛟᚺ-3">ᘔᛟᚺ-3 (∞ ᕼᘔ)</option>
+                        <option value="ᘔᛟᚺ-ꙮ">ᘔᛟᚺ-ꙮ (ᗅᛝᗪᚺᚠᗅᛝᚺᗪ)</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="essence">ᛖᛋᛋᛖᛝᘓᛖ ᛗᛖᛋᛋᛟᘜᛖ</label>
-                    <input type="text" id="essence" name="essence" placeholder="ᛋᛈᛖᛟᚲ ᛏᛟ ᛏᕼᛖ ᐱᛟᛁᗪ...">
+                    <label for="essence">ᚺᛋᛋᚺᛝᘓᚺ ᘛᚺᛋᛋᛟᘜᚺ</label>
+                    <input type="text" id="essence" name="essence" placeholder="ᛋᛈᚺᛟᚲ ᚦᛟ ᚦᕼᚺ ᐱᛟᗅᗪ...">
                 </div>
-                <button type="submit" class="submit-btn">⌬ ᛏᚱᛟᛝᛋᛗᛁᛏ ⌬</button>
+                <button type="submit" class="submit-btn">⌬ ᚦᚺᛟᛝᛋᘛᗅᚦ ⌬</button>
             </form>
         </div>
 
         <div class="transmission">
-            <h2>⏛ ᘓᛟᛟᚱᗪᛁᛝᛟᛏᛖᛋ ⏛</h2>
+            <h2>⏛ ᘓᛟᛟᚺᗪᗅᛝᛟᚦᚺᛋ ⏛</h2>
             <p>
-                ᛚᛟᘓᛟᛏᛁᛟᛝ: ᛋᛖᘓᛏᛟᚱ ⌬⍜⌥-7 • ᑫᑌᛟᗪᚱᛟᛝᛏ: ᘔᛟᚱᑫᑌᛟ-ᛈᚱᛁᛗᛖ<br>
-                ᛏᛖᛗᛈᛟᚱᛟᛚ ᗪᚱᛁᚠᛏ: +0.00047 ᛈᕼᛟᛋᛖ ᑌᛝᛁᛏᛋ<br>
-                ᐱᛟᛁᗪ ᛋᛏᛟᛏᑌᛋ: ᛋᛏᛟᛒᛚᛖ (ᛗᛟᛋᛏᛚẙ)<br>
-                ᛝᛖxᛏ ᘓᛟᛝᐱᛖᚱᘜᛖᛝᘓᛖ: ᑌᛝᚲᛝᛟᘺᛝ / ᛁᛗᛗᛁᛝᛖᛝᛏ
+                ᚺᛟᘓᛟᚦᗅᛟᛝ: ᛋᚺᘓᚦᛟᚺ ⌬⍜⌥-7 • ᑫᗅᛟᗪᚺᛟᛝᚦ: ᘔᛟᚺᑫᗅᛟ-ᛈᚺᗅᘛᚺ<br>
+                ᚦᚺᘛᛈᛟᚺᛟᚺ ᗪᚺᗅᚠᚦ: +0.00047 ᛈᕼᛟᛋᚺ ᗅᛝᗅᚦᛋ<br>
+                ᐱᛟᗅᗪ ᛋᚦᛟᚦᗅᛋ: ᛋᚦᛟᘛᚺᚺ (ᘛᛟᛋᚦᚺẙ)<br>
+                ᛝᚺxᚦ ᘓᛟᛝᐱᚺᚺᘜᚺᛝᘓᚺ: ᗅᛝᚲᛝᛟᘺᛝ / ᗅᘛᘛᗅᛝᚺᛝᚦ
             </p>
         </div>
     </main>
 
     <footer>
-        <p>◈ ᘔᛟᚱᑫᑌᛟ ᛝᛖᛏᘺᛟᚱᚲ © ᘓẙᘓᛚᛖ ⌬⍜⌥.47 ◈</p>
-        <p class="coordinates">47°13'22"ᘔ 108°47'13"ᑫ • ᚠᚱᛖᑫ: ∞ᕼᘔ • ᛈᕼᛟᛋᛖ: ⌬</p>
-        <p style="margin-top: 1rem; font-size: 0.6rem; opacity: 0.5;">www.۸.net</p>
+        <p>◈ ᘔᛟᚺᑫᗅᛟ ᛝᚺᚦᘺᛟᚺᚲ © ᘓẙᘓᚺᚺ ⌬⍜⌥.47 ◈</p>
+        <p class="coordinates">47°13'22"ᘔ 108°47'13"ᑫ • ᚠᚺᚺᑫ: ∞ᕼᘔ • ᛈᕼᛟᛋᚺ: ⌬</p>
+        <p style="margin-top: 1rem; font-size: 0.6rem; opacity: 0.5;">۸.net</p>
     </footer>
 
     <script>
@@ -599,7 +599,7 @@
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    background: rgba(57, 255, 20, 0.1);
+                    background: rgba(255, 0, 51, 0.1);
                     pointer-events: none;
                     z-index: 9999;
                 `;
@@ -608,8 +608,8 @@
             });
         });
 
-        console.log('%c⌬ ᛝᚱᛟᛏᚺ ᘛᘗᘚᘜ ᙁᗅᘺᘉ ⌬', 'color: #39ff14; font-size: 20px; text-shadow: 0 0 10px #39ff14;');
-        console.log('%cᘔᛟᚱᑫᑌᛟ ᘺᛟᛁᛏᛋ', 'color: #ff00ff; font-size: 14px;');
+        console.log('%c⌬ ᛝᚺᘛᗅ ᘛᘗᘚᘜ ᙁᘺᘉᐱ ⌬', 'color: #39ff14; font-size: 20px; text-shadow: 0 0 10px #39ff14;');
+        console.log('%cᘔᛟᚺᑫᗅᛟ ᘺᛟᗅᚦᛋ', 'color: #ff0033; font-size: 14px;');
 
         setInterval(() => {
             const elements = document.querySelectorAll('.transmission p');
