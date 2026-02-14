@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="x-alien">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>☿ ᛝᚱᛟᛏᚺ ᘛᘗᘚᘜ ☿</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --alien-green: #39ff14;
+            --void-purple: #4a0080;
+            --cosmic-pink: #ff00ff;
+            --nebula-blue: #00ffff;
+            --dark-matter: #0a0a0f;
+        }
+
+        body {
+            background: var(--dark-matter);
+            color: var(--alien-green);
+            font-family: 'Orbitron', monospace;
+            min-height: 100vh;
+            overflow-x: hidden;
+            cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="8" fill="%2339ff14" opacity="0.7"/><circle cx="16" cy="16" r="4" fill="%23ff00ff"/></svg>'), auto;
+        }
+
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse at center, transparent 0%, var(--dark-matter) 70%),
+                repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(57, 255, 20, 0.03) 1deg, transparent 2deg);
+            animation: rotate 120s linear infinite;
+        }
+
+        .starfield::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, var(--alien-green), transparent),
+                radial-gradient(2px 2px at 40px 70px, var(--cosmic-pink), transparent),
+                radial-gradient(1px 1px at 90px 40px, var(--nebula-blue), transparent),
+                radial-gradient(2px 2px at 160px 120px, var(--alien-green), transparent),
+                radial-gradient(1px 1px at 230px 80px, white, transparent),
+                radial-gradient(2px 2px at 300px 150px, var(--cosmic-pink), transparent),
+                radial-gradient(1px 1px at 370px 200px, var(--nebula-blue), transparent),
+                radial-gradient(2px 2px at 450px 50px, var(--alien-green), transparent),
+                radial-gradient(1px 1px at 520px 180px, white, transparent),
+                radial-gradient(2px 2px at 600px 100px, var(--cosmic-pink), transparent);
+            background-size: 650px 250px;
+            animation: drift 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes drift {
+            100% { transform: translate(-650px, -250px); }
+        }
+
+        .glitch {
+            position: relative;
+            animation: glitch-skew 1s infinite linear alternate-reverse;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            color: var(--cosmic-pink);
+            animation: glitch-1 0.5s infinite linear alternate-reverse;
+            clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+        }
+
+        .glitch::after {
+            color: var(--nebula-blue);
+            animation: glitch-2 0.5s infinite linear alternate-reverse;
+            clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+        }
+
+        @keyframes glitch-1 {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
+        }
+
+        @keyframes glitch-2 {
+            0% { transform: translate(0); }
+            20% { transform: translate(3px, -3px); }
+            40% { transform: translate(3px, 3px); }
+            60% { transform: translate(-3px, -3px); }
+            80% { transform: translate(-3px, 3px); }
+            100% { transform: translate(0); }
+        }
+
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg); }
+            20% { transform: skew(-1deg); }
+            40% { transform: skew(1deg); }
+            60% { transform: skew(0deg); }
+            80% { transform: skew(-0.5deg); }
+            100% { transform: skew(0deg); }
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 2rem;
+            border-bottom: 2px solid var(--void-purple);
+            background: linear-gradient(180deg, rgba(74, 0, 128, 0.3) 0%, transparent 100%);
+        }
+
+        nav a {
+            color: var(--nebula-blue);
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--void-purple);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        nav a:hover {
+            color: var(--alien-green);
+            border-color: var(--alien-green);
+            box-shadow: 0 0 20px var(--alien-green), inset 0 0 20px rgba(57, 255, 20, 0.1);
+            text-shadow: 0 0 10px var(--alien-green);
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow:
+                0 0 10px var(--alien-green),
+                0 0 20px var(--alien-green),
+                0 0 40px var(--alien-green),
+                0 0 80px var(--void-purple);
+            letter-spacing: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--cosmic-pink);
+            letter-spacing: 0.8rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .transmission {
+            background: linear-gradient(135deg, rgba(74, 0, 128, 0.2) 0%, rgba(0, 255, 255, 0.05) 100%);
+            border: 1px solid var(--void-purple);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .transmission::before {
+            content: '◈ ᛟᛒᛖᛁᛏᚺᛖᛗ ◈';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark-matter);
+            padding: 0 1rem;
+            color: var(--cosmic-pink);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+        }
+
+        .transmission h2 {
+            color: var(--nebula-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .transmission p {
+            line-height: 2;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .symbol-card {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, rgba(57, 255, 20, 0.1) 0%, transparent 70%);
+            border: 1px solid var(--void-purple);
+            border-radius: 15px;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .symbol-card:hover {
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--alien-green);
+            box-shadow:
+                0 0 30px rgba(57, 255, 20, 0.3),
+                inset 0 0 30px rgba(57, 255, 20, 0.1);
+        }
+
+        .symbol-card .glyph {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .symbol-card .label {
+            font-size: 0.7rem;
+            color: var(--cosmic-pink);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .scroll-container {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 1rem 0;
+            border-top: 1px solid var(--void-purple);
+            border-bottom: 1px solid var(--void-purple);
+            margin: 2rem 0;
+        }
+
+        .scroll-text {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+            color: var(--cosmic-pink);
+            font-size: 1.5rem;
+            letter-spacing: 1rem;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .alien-form {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--void-purple);
+            border-radius: 30px;
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 500px;
+        }
+
+        .alien-form h3 {
+            text-align: center;
+            color: var(--nebula-blue);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--cosmic-pink);
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(57, 255, 20, 0.05);
+            border: 1px solid var(--void-purple);
+            border-radius: 10px;
+            color: var(--alien-green);
+            font-family: 'Orbitron', monospace;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--alien-green);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(57, 255, 20, 0.3);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--void-purple) 0%, var(--cosmic-pink) 100%);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-family: 'Orbitron', monospace;
+            font-size: 1rem;
+            letter-spacing: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.4);
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(1px);
+        }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(57, 255, 20, 0.2) 0%, transparent 70%);
+            top: 10%;
+            right: -100px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 0, 255, 0.2) 0%, transparent 70%);
+            bottom: 20%;
+            left: -50px;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .orb-3 {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 0%, transparent 70%);
+            top: 50%;
+            right: 10%;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.1); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--void-purple);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--cosmic-pink);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            opacity: 0.7;
+        }
+
+        .coordinates {
+            font-size: 0.7rem;
+            color: var(--nebula-blue);
+            margin-top: 1rem;
+            font-family: monospace;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                gap: 0.5rem;
+            }
+            nav a {
+                padding: 0.4rem 1rem;
+                font-size: 0.7rem;
+            }
+            .transmission {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="starfield"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <nav>
+        <a href="/ᛝᚱᛟᛏᚺ">ᛝᚱᛟᛏᚺ</a>
+        <a href="/ᙁᗅᘺᘉ">ᙁᗅᘺᘉ</a>
+        <a href="/ꙮꙮꙮ">ꙮꙮꙮ</a>
+        <a href="/ᐱᑐᕋᕈ">ᐱᑐᕋᕈ</a>
+        <a href="/ᚦᛁᛗᛖ">ᚦᛁᛗᛖ</a>
+        <a href="/ᘛᘗᘚᘜ">ᘛᘗᘚᘜ</a>
+        <a href="/⌇⌬⍜⌥">⌇⌬⍜⌥</a>
+        <a href="/ᔕᑫᑌᗩᘜ">ᔕᑫᑌᗩᘜ</a>
+    </nav>
+
+    <header>
+        <h1 class="glitch" data-text="ᘔᛟᚱᑫᑌᗩ">ᘔᛟᚱᑫᑌᗩ</h1>
+        <p class="subtitle">◈ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ⌬⍜⌥-7 ◈</p>
+    </header>
+
+    <main>
+        <div class="transmission">
+            <h2>☿ ᛈᚱᛁᛗᛟᚱᛖ ᗩᑌᚱᛟᚱᗩ ☿</h2>
+            <p>
+                ꙮ ᛝᚱᛟᛏᚺ ᘛᘗᘚᘜ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ᐱᑐᕋᕈ ᚦᛁᛗᛖ ᔕᑫᑌᗩᘜ ꙮ
+                ᛟᛒᛖᛁ ᛗᛟᛟᚾ ᘔᛟᚱᑫᑌᗩ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ᐱᑐᕋᕈ ᚦᛁᛗᛖ.
+                ᘛᘗᘚᘜ ᔕᑫᑌᗩᘜ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ꙮꙮꙮ ᐱᑐᕋᕈ ᚦᛁᛗᛖ ᘛᘗᘚᘜ.
+                ⌇⌬⍜⌥ ᔕᑫᑌᗩᘜ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ꙮꙮꙮ ᐱᑐᕋᕈ ᚦᛁᛗᛖ ᘛᘗᘚᘜ ⌇⌬⍜⌥.
+            </p>
+        </div>
+
+        <div class="scroll-container">
+            <div class="scroll-text">
+                ◈ ⌬ᛟᛒᛖᛁ ⌥ᛏᚺᛖ ⌇ᛗᛟᛟᚾ ◈ ᘔᛟᚱᑫᑌᗩ ᘛᘗᘚᘜ ◈ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ◈ 47.ᘔᛟᚱ.ᛟᑌᛏ ◈ ⌬ᛟᛒᛖᛁ ⌥ᛏᚺᛖ ⌇ᛗᛟᛟᚾ ◈ ᘔᛟᚱᑫᑌᗩ ᘛᘗᘚᘜ ◈ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ◈ 47.ᘔᛟᚱ.ᛟᑌᛏ ◈
+            </div>
+        </div>
+
+        <div class="symbols-grid">
+            <div class="symbol-card">
+                <span class="glyph">⌬</span>
+                <span class="label">ᘓᛚᛟᚱᛈ</span>
+            </div>
+            <div class="symbol-card">
+                <span class="glyph">⍜</span>
+                <span class="label">ᘺᛟᚱᛈ</span>
+            </div>
+            <div class="symbol-card">
+                <span class="glyph">ꙮ</span>
+                <span class="label">ᛋᛖᛖᚱ</span>
+            </div>
+            <div class="symbol-card">
+                <span class="glyph">☿</span>
+                <span class="label">ᛗᛖᚱᘓᑌᚱ</span>
+            </div>
+            <div class="symbol-card">
+                <span class="glyph">⌇</span>
+                <span class="label">ᚠᛚᑌx</span>
+            </div>
+            <div class="symbol-card">
+                <span class="glyph">⏃</span>
+                <span class="label">ᗩᛝᘜᛚᛖ</span>
+            </div>
+            <div class="symbol-card">
+                <span class="glyph">⏚</span>
+                <span class="label">ᘜᚱᛟᑌᛝᗪ</span>
+            </div>
+            <div class="symbol-card">
+                <span class="glyph">⏛</span>
+                <span class="label">ᛈᑌᛚᛋᛖ</span>
+            </div>
+        </div>
+
+        <div class="transmission">
+            <h2>⏃ ᛋᛖᘓᛟᛝᗪᛟᚱẙ ᘜᛚᛁᛗᛗᛖᚱ ⏃</h2>
+            <p>
+                ᛝᚱᛟᛏᚺ ᘛᘗᘚᘜ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ᐱᑐᕋᕈ ᚦᛁᛗᛖ ᔕᑫᑌᗩᘜ ꙮꙮꙮ.
+                ᘔᛟᚱᑫᑌᗩ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ᐱᑐᕋᕈ ᚦᛁᛗᛖ ᘛᘗᘚᘜ.
+                ᛟᛒᛖᛁ ᛗᛟᛟᚾ ᘔᛟᚱᑫᑌᗩ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ⌇⌬⍜⌥ ᐱᑐᕋᕈ ᚦᛁᛗᛖ.
+                ᘛᘗᘚᘜ ⌇⌬⍜⌥ ᔕᑫᑌᗩᘜ ᛝᚱᛟᛏᚺ ᙁᗅᘺᘉ ꙮꙮꙮ ᐱᑐᕋᕈ ᚦᛁᛗᛖ.
+            </p>
+        </div>
+
+        <div class="alien-form">
+            <h3>◈ ᛏᚱᛟᛝᛋᛗᛁᛏ ẙᛟᑌᚱ ᛖᛋᛋᛖᛝᘓᛖ ◈</h3>
+            <form action="/ᛏᚱᛟᛝᛋᛗᛁᛏ" method="POST">
+                <div class="form-group">
+                    <label for="zorgname">ᘔᛟᚱᘜ ᛝᛟᛗᛖ</label>
+                    <input type="text" id="zorgname" name="zorgname" placeholder="ᛖᛝᛏᛖᚱ ᘔᛟᚱᘜ ᛝᛟᛗᛖ...">
+                </div>
+                <div class="form-group">
+                    <label for="frequency">ᐱᛁᛒᚱᛟᛏᛁᛟᛝᛟᛚ ᚠᚱᛖᑫᑌᛖᛝᘓẙ</label>
+                    <select id="frequency" name="frequency">
+                        <option value="ᘔᛟᚱ-1">ᘔᛟᚱ-1 (47.3 ᕼᘔ)</option>
+                        <option value="ᘔᛟᚱ-2">ᘔᛟᚱ-2 (108.7 ᕼᘔ)</option>
+                        <option value="ᘔᛟᚱ-3">ᘔᛟᚱ-3 (∞ ᕼᘔ)</option>
+                        <option value="ᘔᛟᚱ-ꙮ">ᘔᛟᚱ-ꙮ (ᑌᛝᗪᛖᚠᛁᛝᛖᗪ)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="essence">ᛖᛋᛋᛖᛝᘓᛖ ᛗᛖᛋᛋᛟᘜᛖ</label>
+                    <input type="text" id="essence" name="essence" placeholder="ᛋᛈᛖᛟᚲ ᛏᛟ ᛏᕼᛖ ᐱᛟᛁᗪ...">
+                </div>
+                <button type="submit" class="submit-btn">⌬ ᛏᚱᛟᛝᛋᛗᛁᛏ ⌬</button>
+            </form>
+        </div>
+
+        <div class="transmission">
+            <h2>⏛ ᘓᛟᛟᚱᗪᛁᛝᛟᛏᛖᛋ ⏛</h2>
+            <p>
+                ᛚᛟᘓᛟᛏᛁᛟᛝ: ᛋᛖᘓᛏᛟᚱ ⌬⍜⌥-7 • ᑫᑌᛟᗪᚱᛟᛝᛏ: ᘔᛟᚱᑫᑌᛟ-ᛈᚱᛁᛗᛖ<br>
+                ᛏᛖᛗᛈᛟᚱᛟᛚ ᗪᚱᛁᚠᛏ: +0.00047 ᛈᕼᛟᛋᛖ ᑌᛝᛁᛏᛋ<br>
+                ᐱᛟᛁᗪ ᛋᛏᛟᛏᑌᛋ: ᛋᛏᛟᛒᛚᛖ (ᛗᛟᛋᛏᛚẙ)<br>
+                ᛝᛖxᛏ ᘓᛟᛝᐱᛖᚱᘜᛖᛝᘓᛖ: ᑌᛝᚲᛝᛟᘺᛝ / ᛁᛗᛗᛁᛝᛖᛝᛏ
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>◈ ᘔᛟᚱᑫᑌᛟ ᛝᛖᛏᘺᛟᚱᚲ © ᘓẙᘓᛚᛖ ⌬⍜⌥.47 ◈</p>
+        <p class="coordinates">47°13'22"ᘔ 108°47'13"ᑫ • ᚠᚱᛖᑫ: ∞ᕼᘔ • ᛈᕼᛟᛋᛖ: ⌬</p>
+        <p style="margin-top: 1rem; font-size: 0.6rem; opacity: 0.5;">www.۸.net</p>
+    </footer>
+
+    <script>
+        document.addEventListener('scroll', () => {
+            if (Math.random() > 0.95) {
+                document.body.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+                setTimeout(() => {
+                    document.body.style.filter = 'none';
+                }, 50);
+            }
+        });
+
+        document.querySelectorAll('.symbol-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const flash = document.createElement('div');
+                flash.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(57, 255, 20, 0.1);
+                    pointer-events: none;
+                    z-index: 9999;
+                `;
+                document.body.appendChild(flash);
+                setTimeout(() => flash.remove(), 100);
+            });
+        });
+
+        console.log('%c⌬ ᛝᚱᛟᛏᚺ ᘛᘗᘚᘜ ᙁᗅᘺᘉ ⌬', 'color: #39ff14; font-size: 20px; text-shadow: 0 0 10px #39ff14;');
+        console.log('%cᘔᛟᚱᑫᑌᛟ ᘺᛟᛁᛏᛋ', 'color: #ff00ff; font-size: 14px;');
+
+        setInterval(() => {
+            const elements = document.querySelectorAll('.transmission p');
+            const randomElement = elements[Math.floor(Math.random() * elements.length)];
+            if (randomElement && Math.random() > 0.7) {
+                const originalText = randomElement.textContent;
+                const corruptedText = originalText.split('').map(char =>
+                    Math.random() > 0.9 ? String.fromCharCode(Math.floor(Math.random() * 1000) + 9000) : char
+                ).join('');
+                randomElement.textContent = corruptedText;
+                setTimeout(() => {
+                    randomElement.textContent = originalText;
+                }, 100);
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
